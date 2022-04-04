@@ -9,6 +9,7 @@ public class Collectible : MonoBehaviour
 
     public bool collectOnEnter;
 
+    public AudioSource collectSound;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -19,6 +20,7 @@ public class Collectible : MonoBehaviour
             }
             else
             {
+                collectSound.Play();
                 ui.SetActive(true);
                 canCollect = true;
             }
